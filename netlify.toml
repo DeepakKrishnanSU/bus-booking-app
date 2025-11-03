@@ -1,0 +1,13 @@
+[build]
+  # Set the base directory for the build to the 'frontend' folder
+  base = "frontend"
+  # The command to run (will run from within 'frontend')
+  command = "npm run build"
+  # The output directory for the final files (dist inside frontend)
+  publish = "frontend/dist"
+
+[[redirects]]
+  # This rule ensures all paths are served by index.html, fixing the 404
+  from = "/*"
+  to = "/index.html"
+  status = 200
