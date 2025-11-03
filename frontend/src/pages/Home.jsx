@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+const VITE_API_URL = import.meta.env.VITE_API_URL;
 import { useNavigate, useLocation } from "react-router-dom";
 import "./Home.css";
 
@@ -17,7 +18,7 @@ function Home() {
   useEffect(() => {
     const fetchRoutes = async () => {
       try {
-        const res = await axios.get("http://localhost:7000/api/routes");
+        const res = await axios.get(`${VITE_API_URL}/api/routes`);
         setRoutes(res.data);
       } catch (err) {
         console.error("Error fetching routes:", err);
@@ -36,7 +37,7 @@ function Home() {
     }
 
     try {
-      const response = await axios.get("http://localhost:7000/api/bus-schedule/search", {
+      const response = await axios.get(`${VITE_API_URL}/api/bus-schedule/search`, {
         params: { from, to, date },
       });
 

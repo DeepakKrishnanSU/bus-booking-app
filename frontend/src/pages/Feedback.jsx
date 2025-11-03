@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import "./Feedback.css";
+const VITE_API_URL = import.meta.env.VITE_API_URL;
 
 function Feedback() {
   const [ticketNumber, setTicketNumber] = useState("");
@@ -22,19 +24,31 @@ function Feedback() {
     setFeedback({ ...feedback, rating: star });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const ticketFormat = /^\d{6}-\d{6}$/;
+  const handleSubmit = async (e) => { // 👈 ADD 'async' here
+  e.preventDefault();
+  const ticketFormat = /^\d{6}-\d{6}$/;
 
-    if (!ticketFormat.test(ticketNumber.trim())) {
-      alert("❌ Invalid Ticket Number Format");
-      return;
-    }
+  if (!ticketFormat.test(ticketNumber.trim())) {
+    alert("❌ Invalid Ticket Number Format");
+    return;
+  }
 
-    if (feedback.rating === 0) {
-      alert("Please provide a star rating before submitting!");
-      return;
-    }
+  if (feedback.rating === 0) {
+    alert("Please provide a star rating before submitting!");
+    return;
+  }
+
+  try {
+    const dataToSend = {
+      ticketNumber,
+      ...feedback,
+    };
+    
+    await axios.post(`${VITE_API_URL}/api/feedback/submit`, dataToSend, { 
+        headers: { 
+            Authorization: `Bearer ${localStorage.getItem('token')}`
+        }
+    });
 
     alert("✅ Feedback Submitted Successfully!");
     setTicketNumber("");
@@ -46,7 +60,12 @@ function Feedback() {
       rating: 0,
     });
     setSubmitted(true);
-  };
+
+  } catch (error) {
+    console.error("Feedback submission error:", error);
+    alert("❌ Submission Failed. Please try again.");
+  }
+};
 
   return (
     <div className="feedback-container">

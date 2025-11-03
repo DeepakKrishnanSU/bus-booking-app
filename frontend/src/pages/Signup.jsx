@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+const VITE_API_URL = import.meta.env.VITE_API_URL;
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.css"; // same styling
 
@@ -28,11 +29,12 @@ function Signup() {
     }
 
     try {
-      const response = await axios.post("http://localhost:7000/api/user/signup", {
-        name: formData.name,
-        email: formData.email,
-        password: formData.password,
-      });
+  // ✅ CHANGE MADE HERE: Use VITE_API_URL instead of localhost
+  const response = await axios.post(`${VITE_API_URL}/api/user/signup`, {
+    name: formData.name,
+    email: formData.email,
+    password: formData.password,
+  });
 
       alert(response.data.message || "Signup successful!");
       navigate("/login"); // Redirect to login after signup

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./Cancellation.css";
+const VITE_API_URL = import.meta.env.VITE_API_URL;
 
 function Cancellation() {
   const [ticket, setTicket] = useState("");
@@ -13,7 +14,7 @@ function Cancellation() {
   }
 
   try {
-    const res = await fetch(`http://localhost:7000/api/bookings/cancel/${ticket}`, {
+    const res = await fetch(`${VITE_API_URL}/api/bookings/cancel/${ticket}`, {
       method: "PUT",
     });
 

@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./Admin.css";
 
-const API_BASE_URL = "http://localhost:7000/api";
+const VITE_API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:7000"; // Fallback for local testing
+const API_BASE_URL = `${VITE_API_BASE_URL}/api`;
 const getAdminConfig = () => ({
   headers: { "Content-Type": "application/json", "x-user-role": "admin" },
 });
@@ -397,7 +398,7 @@ const UserManager = () => {
   const [selectedUsers, setSelectedUsers] = React.useState([]);
 
   React.useEffect(() => {
-    fetch("http://localhost:7000/api/user")
+    fetch(`${API_BASE_URL}/user`)
       .then((res) => res.json())
       .then((data) => {
         setUsers(data);
@@ -427,7 +428,7 @@ const UserManager = () => {
 
       if (window.confirm(`Delete ${selectedUsers.length} selected user(s)?`)) {
         try {
-          const response = await fetch("http://localhost:7000/api/user/delete", {
+          const response = await fetch(`${API_BASE_URL}/user/delete`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ userIds: selectedUsers }),
@@ -526,7 +527,7 @@ const BusStatusManager = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:7000/api/bookings/all")
+      .get(`${API_BASE_URL}/bookings/all`)
       .then((res) => {
         setBookings(res.data);
         setLoading(false);
