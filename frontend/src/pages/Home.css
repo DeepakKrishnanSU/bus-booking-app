@@ -1,0 +1,137 @@
+.home-page {
+  height: 100vh;
+  background-color: #d1fae5; /* fallback light green */
+  background-image: url("https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YnVzfGVufDB8fDB8fHww&fm=jpg&q=60&w=3000");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  font-family: "Poppins", sans-serif;
+  color: #1e293b;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Optional: dark overlay for better contrast */
+.home-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25); /* slight dark overlay */
+  z-index: 0;
+}
+
+.top-menu {
+  background-color: #14532d;
+  padding: 15px 0;
+  flex-shrink: 0;
+  z-index: 1;
+}
+
+.top-menu ul {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.top-menu li {
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.top-menu li:hover {
+  color: #bbf7d0;
+}
+
+/* Centered Form Area */
+.main-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1; /* ensures above overlay */
+}
+
+/* Booking Form Box */
+.search-box {
+  padding: 22px 28px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  width: 340px;
+  border: 1.5px solid #16a34a;
+  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Heading inside box */
+.search-box legend {
+  color: whitesmoke;
+  font-weight: 700;
+  font-size: 17px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+/* Form layout */
+.search-box form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Labels */
+.search-box label {
+  font-weight: 600;
+  color: whitesmoke;
+  font-size: 14px;
+}
+
+/* Inputs and dropdowns */
+.search-box select,
+.search-box input {
+  padding: 8px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.search-box select:focus,
+.search-box input:focus {
+  border-color: #16a34a;
+  box-shadow: 0 0 4px rgba(22, 163, 74, 0.4);
+}
+
+/* ✅ Button */
+.search-box button {
+  background-color: #16a34a;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s, transform 0.2s, cursor 0.2s;
+}
+
+.search-box button:hover {
+  background-color: #14532d;
+  transform: translateY(-2px);
+}
+
+/* ✅ Disabled Button State */
+.search-box button:disabled {
+  background-color: #9ca3af; /* grey */
+  cursor: not-allowed;
+  transform: none; /* no movement */
+  color: #f3f4f6; /* light grey text */
+  opacity: 0.9;
+}

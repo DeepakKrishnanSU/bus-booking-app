@@ -1,0 +1,151 @@
+.status-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: 'Poppins', sans-serif;
+  min-height: 100vh;
+  background-color: #f4f6f9;
+}
+
+.status-container {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  width: 420px;
+  position: relative;
+}
+
+.status-container h1 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: #1f2937;
+}
+
+.status-container input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.status-container button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 15px;
+  transition: 0.2s;
+}
+
+.status-container button:hover {
+  background: #1e40af;
+}
+
+.status-result {
+  margin-top: 25px;
+}
+
+.status-result h2 {
+  text-align: center;
+  color: #2563eb;
+  margin-bottom: 20px;
+}
+
+.stops-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+
+.stops-list li {
+  display: flex;
+  align-items: center;
+  margin: 18px 0;
+  position: relative;
+  color: #111827;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+/* Blue circle number */
+.stop-number {
+  background: #2563eb;
+  color: white;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  margin-right: 12px;
+  font-weight: 600;
+}
+
+/* Vertical connecting line */
+.stops-list li::after {
+  content: "";
+  position: absolute;
+  left: 14px;
+  top: 35px;
+  width: 2px;
+  height: 25px;
+  background-color: #2563eb;
+}
+
+.stops-list li:last-child::after {
+  display: none;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Optional: Back button styling */
+.back-home-btn {
+  position: absolute;
+  top: 15px;
+  left: 20px;
+  background-color: #16a34a;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.back-home-btn:hover {
+  background-color: #15803d;
+}
+
+/* Make the first stop look like the starting point */
+.stops-list li:first-child .stop-number {
+  background: #16a34a; /* Green */
+}
+
+.stops-list li:first-child .stop-name::after {
+  content: " (Start)";
+  color: #16a34a;
+  font-weight: 600;
+}
+
+/* Make the last stop look like the ending point */
+.stops-list li:last-child .stop-number {
+  background: #dc2626; /* Red */
+}
+
+.stops-list li:last-child .stop-name::after {
+  content: " (End)";
+  color: #dc2626;
+  font-weight: 600;
+}

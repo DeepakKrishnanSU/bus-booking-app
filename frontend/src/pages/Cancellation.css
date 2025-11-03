@@ -1,0 +1,129 @@
+.cancellation-page {
+  background: linear-gradient(135deg, #e8f5e9, #e3f2fd);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+}
+
+/* 🔙 Back to Home Button */
+.back-home-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: linear-gradient(90deg, #2e7d32, #43a047);
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.back-home-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(46, 125, 50, 0.3);
+}
+
+.back-home-btn:active {
+  transform: scale(0.97);
+}
+
+.cancellation-container {
+  background: #ffffff;
+  padding: 40px 45px;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  width: 400px;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.cancellation-container h1 {
+  color: #0d5c2a;
+  margin-bottom: 25px;
+  font-size: 2rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.cancellation-container label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #1a1a1a;
+  text-align: left;
+}
+
+.cancellation-container input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1.5px solid #bdbdbd;
+  margin-bottom: 20px;
+  font-size: 16px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.cancellation-container input:focus {
+  border-color: #2196f3;
+  box-shadow: 0 0 8px rgba(33, 150, 243, 0.3);
+  outline: none;
+}
+
+.cancellation-container button {
+  background: linear-gradient(90deg, #2e7d32, #43a047);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cancellation-container button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(46, 125, 50, 0.3);
+}
+
+.cancellation-container button:active {
+  transform: scale(0.97);
+}
+
+/* ✨ Smooth fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 📱 Responsive design */
+@media (max-width: 480px) {
+  .cancellation-container {
+    width: 90%;
+    padding: 30px 20px;
+  }
+
+  .cancellation-container h1 {
+    font-size: 1.6rem;
+  }
+
+  .back-home-btn {
+    top: 10px;
+    left: 10px;
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+}

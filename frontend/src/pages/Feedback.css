@@ -1,0 +1,95 @@
+.feedback-container {
+  font-family: 'Poppins', sans-serif;
+  background-color: #ffffff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 400px;
+  margin: 80px auto;
+  position: relative;
+}
+
+/* Back to Home Button */
+.back-home-btn {
+  position: absolute;
+  top: -50px;
+  left: 0;
+  background-color: #114b25;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.back-home-btn:hover {
+  background-color: #146b35;
+  transform: translateY(-2px);
+}
+
+.feedback-container h1 {
+  color: #114b25;
+  margin-bottom: 20px;
+}
+
+.feedback-container label {
+  display: block;
+  text-align: left;
+  margin-top: 15px;
+  font-weight: bold;
+  color: #333;
+}
+
+.feedback-container input,
+.feedback-container select,
+.feedback-container textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #aaa;
+  margin-top: 5px;
+  font-size: 15px;
+  resize: none;
+}
+
+.star-rating {
+  margin-top: 10px;
+}
+
+.star {
+  font-size: 25px;
+  color: #ccc;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.star.selected {
+  color: gold;
+}
+
+.feedback-container button {
+  background-color: #114b25;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 20px;
+  font-size: 16px;
+  transition: 0.2s;
+}
+
+.feedback-container button:hover {
+  background-color: #146b35;
+}
+
+.thankyou {
+  color: #146b35;
+  font-weight: bold;
+  margin-top: 15px;
+}

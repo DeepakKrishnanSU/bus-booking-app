@@ -1,0 +1,92 @@
+/* Full-page background */
+.login-page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Center box */
+.login-card {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 40px 50px;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  width: 350px;
+  text-align: center;
+  backdrop-filter: blur(6px);
+}
+
+/* Title */
+.login-card h2 {
+  margin-bottom: 25px;
+  color: #1e3a8a;
+  font-size: 26px;
+}
+
+/* Form styles */
+.login-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.login-card label {
+  text-align: left;
+  font-weight: 600;
+  color: #1e40af;
+  font-size: 14px;
+}
+
+.login-card input {
+  padding: 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.login-card input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 4px rgba(59, 130, 246, 0.4);
+}
+
+/* Button */
+.login-card button {
+  margin-top: 10px;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 15px;
+  transition: 0.3s ease;
+}
+
+.login-card button:hover {
+  background-color: #2563eb;
+  transform: translateY(-2px);
+}
+
+/* Signup text */
+.signup-text {
+  margin-top: 20px;
+  color: #1e293b;
+  font-size: 14px;
+}
+
+.signup-text a {
+  color: #3b82f6;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.signup-text a:hover {
+  text-decoration: underline;
+}

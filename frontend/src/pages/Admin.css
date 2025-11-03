@@ -1,0 +1,528 @@
+/* === BASE LAYOUT === */
+.admin-dashboard {
+  display: flex;
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  background-color: #0f172a;
+  color: #f8fafc;
+  overflow: hidden;
+}
+
+/* === SIDEBAR === */
+.sidebar {
+  width: 200px;
+  background-color: #111827;
+  color: white;
+  padding: 10px 0;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  position: relative;
+  z-index: 10;
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+.sidebar.closed {
+  transform: translateX(-100%);
+}
+
+.sidebar-toggle {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: none;
+  border: none;
+  color: #22c55e;
+  font-size: 22px;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.sidebar-toggle:hover {
+  color: #16a34a;
+  transform: scale(1.1);
+}
+
+.app-title {
+  text-align: center;
+  margin-bottom: 16px;
+  color: #22c55e;
+  font-size: 1.15rem;
+  font-weight: 700;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar nav button {
+  width: 100%;
+  padding: 10px 15px;
+  text-align: left;
+  background: none;
+  border: none;
+  color: #9ca3af;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  border-left: 2px solid transparent;
+}
+
+.sidebar nav button:hover {
+  background-color: #1f2937;
+  color: #ffffff;
+  border-left: 2px solid #22c55e;
+}
+
+.sidebar nav button.active {
+  background-color: #22c55e;
+  color: #ffffff;
+  font-weight: 600;
+  border-left: 2px solid #22c55e;
+}
+
+/*Reopen Button*/
+.open-sidebar-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background-color: #111827;
+  color: white;
+  border: none;
+  font-size: 22px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.open-sidebar-btn:hover {
+  background-color: #1f2937;
+  transform: scale(1.05);
+}
+
+/* === MAIN PAGE AREA === */
+.admin-page {
+  flex-grow: 1;
+  padding: 16px;
+  background: url("https://img.freepik.com/free-vector/gradient-abstract-wireframe-background_23-2149009903.jpg?semt=ais_hybrid&w=740&q=80");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  overflow-y: auto;
+  transition: margin-left 0.3s ease;
+}
+
+.admin-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 6px;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.admin-header h1 {
+  color: #ffffff;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+/* === DASHBOARD AREA === */
+.content-area {
+  background: rgba(0, 0, 0, 0.25);
+  padding: 18px;
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
+  min-height: 60vh;
+  animation: fadeIn 0.5s ease;
+}
+
+/*Dashboard Rectangle Cards*/
+.dashboard-overview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+  padding: 20px;
+}
+
+.dashboard-overview h2 {
+  color: #fff;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 35px;
+}
+
+.dashboard-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.dash-rect {
+  background: linear-gradient(135deg, #1e3a8a, #0f172a);
+  color: white;
+  width: 250px;
+  height: 160px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  padding: 20px;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.dash-rect:hover {
+  background: linear-gradient(135deg, #22c55e, #15803d);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.dash-rect h3 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  color: #fff;
+}
+
+.dash-rect p {
+  color: #d1d5db;
+  font-size: 0.9rem;
+}
+
+/* === BACK TO DASHBOARD BUTTON === */
+.back-btn {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  align-self: flex-start;
+  margin-bottom: 15px;
+}
+
+.back-link {
+  display: inline-block;
+  padding: 8px 16px;
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.back-link:hover {
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  transform: translateY(-2px);
+}
+
+/* === ROUTE MANAGING === */
+.route-manager {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Form Box */
+.route-form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 25px 35px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+  transition: all 0.25s ease;
+  transform: scale(1.2);
+  transform-origin: top center;
+}
+
+.route-form input {
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  width: 200px;
+  font-size: 0.95rem;
+  background-color: whitesmoke;
+  color: black;
+  transition: background-color 0.25s ease;
+}
+
+.route-form input::placeholder {
+  color: black;
+}
+
+.route-form input:focus {
+  background-color: white;
+}
+
+/* Add Button*/
+.route-form button {
+  background-color: #16a34a;
+  color: #111;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background-color 0.25s ease, transform 0.2s ease;
+}
+
+.route-form button:hover {
+  background-color: #e0b94d;
+  transform: scale(1.05);
+}
+
+.route-form button:disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+}
+
+/*Route Table*/
+.route-table {
+  width: 70%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  text-align: center;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+}
+
+.route-table th {
+  background: linear-gradient(135deg, #16a34a, #15803d);
+  color: white;
+  padding: 10px;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.route-table td {
+  background-color: rgba(255, 255, 255, 0.08);
+  padding: 10px;
+  color: #f9fafb;
+  font-size: 0.9rem;
+}
+
+.route-table tr:hover td {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/*Delete Button*/
+.delete-btn {
+  background-color: #ef4444;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: background-color 0.25s ease;
+}
+
+.delete-btn:hover {
+  background-color: #dc2626;
+}
+
+/* === BUS SCHEDULER === */
+.bus-scheduler {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 30px;
+  color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  max-width: 900px;
+  margin: 40px auto;
+  transform: scale(1.02);
+  transition: transform 0.3s ease;
+}
+
+.bus-scheduler h3 {
+  font-size: 23px;
+}
+
+/* Form Styling */
+.bus-scheduler .bus-route-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px 20px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 25px;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+
+.bus-scheduler input,
+.bus-scheduler textarea {
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  width: 100%;
+  font-size: 15px;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.85);
+  color: #111827;
+  transition: 0.3s ease;
+}
+
+.bus-scheduler input:focus,
+.bus-scheduler textarea:focus {
+  outline: 2px solid #facc15;
+}
+
+/* Button */
+.bus-scheduler button {
+  grid-column: span 2;
+  padding: 12px;
+  background-color: #16a34a;
+  color: #111827;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.bus-scheduler button:hover {
+  background-color: #e0b94d;
+  transform: scale(1.04);
+}
+
+/* Messages */
+.bus-scheduler .message {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.message.success {
+  background: #16a34a;
+}
+
+.message.error {
+  background: #dc2626;
+}
+
+.bus-route-form button:disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+}
+
+/* Table Styling */
+.bus-route-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 25px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.bus-route-table th,
+.bus-route-table td {
+  padding: 12px;
+  text-align: center;
+}
+
+.bus-route-table th {
+  background-color: rgba(255, 255, 255, 0.2);
+  font-weight: bold;
+}
+
+.bus-route-table tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.bus-route-table tr:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  transition: 0.3s ease;
+}
+
+/* === USER MANAGING === */
+/* Center the User Manager section */
+.user-manager {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+  text-align: center;
+}
+
+/* Style the table and keep it centered */
+.user-table {
+  width: 70%;
+  border-collapse: collapse;
+  background: rgba(255, 255, 255, 0.05);
+  margin: 0 auto;
+  margin-top: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.user-table th {
+  background-color: #111827;
+  color: #fff;
+  padding: 12px;
+  text-align: center;
+}
+
+.user-table td {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.user-table tr:last-child td {
+  border-bottom: none;
+}
+.bus-status-manager {
+  text-align: center;
+  padding: 20px;
+}
+
+.bus-status-table {
+  background-color: black;
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.bus-status-table th,
+.bus-status-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+.bus-status-table th {
+  background-color: #1f2937;
+  color: white;
+}
